@@ -2,820 +2,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arpita Vashisht - Computer Science and AI Student Portfolio">
 
-    <title>Arpita Vashisht | Portfolio</title>
+  <title>Arpita Vashisht | Portfolio</title>
 
-    <meta name="description" content="Arpita Vashisht - B.Tech Computer Science and AI student at Vedam School of Technology. Explore my projects, skills and achievements.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #080812;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-        :root {
-            --purple: #a855f7;
-            --pink: #ec4899;
-            --light: #d8b4fe;
-            --card: #151525;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVBAR */
-
-        header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            background: rgba(8, 8, 18, 0.92);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: var(--purple);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            color: #ddd;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--purple);
-        }
-
-        .menu-btn {
-            display: none;
-            font-size: 25px;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* COMMON SECTION */
-
-        section {
-            padding: 100px 8%;
-            max-width: 1400px;
-            margin: auto;
-        }
-
-        .section-title {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .section-title span {
-            color: var(--purple);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 45px;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 120px;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(168,85,247,0.15), transparent 35%),
-                radial-gradient(circle at 80% 70%, rgba(236,72,153,0.12), transparent 35%),
-                #080812;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 7vw, 65px);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h2 {
-            color: #d8b4fe;
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: #bbb;
-            font-size: 17px;
-            margin-bottom: 30px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #9333ea, #db2777);
-            color: white;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(168,85,247,0.35);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--purple);
-            background: transparent;
-        }
-
-        /* ABOUT */
-
-        .about-content {
-            max-width: 850px;
-            margin: auto;
-            padding: 35px;
-            background: var(--card);
-            border: 1px solid rgba(168,85,247,0.2);
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .about-content p {
-            color: #bbb;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .highlight {
-            color: var(--light);
-            font-weight: 600;
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .skill-card {
-            padding: 25px;
-            text-align: center;
-            background: var(--card);
-            border-radius: 15px;
-            border: 1px solid rgba(168,85,247,0.2);
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--purple);
-        }
-
-        .skill-card h3 {
-            color: var(--light);
-            font-size: 18px;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: var(--card);
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid rgba(168,85,247,0.2);
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--purple);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #202035;
-        }
-
-        .project-info {
-            padding: 22px;
-        }
-
-        .project-info h3 {
-            font-size: 21px;
-            color: var(--light);
-            margin-bottom: 10px;
-        }
-
-        .project-info p {
-            font-size: 14px;
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 18px;
-        }
-
-        .tags span {
-            font-size: 12px;
-            padding: 5px 10px;
-            background: rgba(168,85,247,0.15);
-            color: #d8b4fe;
-            border-radius: 20px;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .project-links a {
-            font-size: 13px;
-            padding: 9px 14px;
-            border-radius: 20px;
-            border: 1px solid var(--purple);
-            transition: 0.3s;
-        }
-
-        .project-links a:hover {
-            background: var(--purple);
-        }
-
-        /* CERTIFICATIONS */
-
-        .certifications {
-            text-align: center;
-        }
-
-        .certificate-card {
-            max-width: 850px;
-            margin: auto;
-            padding: 22px;
-            background: var(--card);
-            border: 1px solid rgba(168,85,247,0.3);
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--purple);
-            box-shadow: 0 10px 35px rgba(168,85,247,0.12);
-        }
-
-        .certificate-image {
-            width: 100%;
-            display: block;
-            border-radius: 12px;
-            cursor: zoom-in;
-        }
-
-        .certificate-info {
-            padding: 22px 10px 8px;
-        }
-
-        .certificate-info h3 {
-            font-size: 23px;
-            color: var(--light);
-            margin-bottom: 8px;
-        }
-
-        .certificate-info p {
-            color: #aaa;
-            margin-bottom: 8px;
-        }
-
-        .certificate-type {
-            display: inline-block;
-            color: #d8b4fe;
-            background: rgba(168,85,247,0.15);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            max-width: 750px;
-            margin: auto;
-            padding: 35px;
-            text-align: center;
-            background: var(--card);
-            border-radius: 20px;
-            border: 1px solid rgba(168,85,247,0.2);
-        }
-
-        .contact-box p {
-            color: #bbb;
-            margin-bottom: 25px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            border: 1px solid var(--purple);
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--purple);
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #888;
-            border-top: 1px solid rgba(168,85,247,0.2);
-            font-size: 14px;
-        }
-
-        /* MOBILE RESPONSIVE */
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 65px;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                background: #101020;
-                padding: 25px;
-                gap: 20px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            section {
-                padding: 80px 6%;
-            }
-
-            .section-title {
-                font-size: 29px;
-            }
-
-            .hero h2 {
-                font-size: 18px;
-            }
-
-            .about-content,
-            .contact-box {
-                padding: 25px 18px;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <nav class="nav container">
 
-    <header>
-        <nav>
-            <a href="#home" class="logo">Arpita.</a>
+      <a href="#home" class="logo">
+        Arpita<span>.</span>
+      </a>
 
-            <button class="menu-btn" id="menuBtn"
-                aria-label="Toggle navigation" aria-expanded="false">
-                ☰
-            </button>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#github-resume">GitHub & Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-            <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#certifications">Certificates</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
+    </nav>
+  </header>
 
 
-    <!-- HOME -->
+  <main>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
+    <!-- HOME SECTION -->
+    <section class="hero container" id="home">
 
-            <h1>Hello, I'm <span>Arpita Vashisht</span></h1>
+      <div class="hero-copy">
 
-            <h2>B.Tech CS & AI Student | Aspiring Software Engineer</h2>
+        <p class="eyebrow">HELLO, I'M</p>
 
-            <p>
-                A passionate Computer Science and AI student at
-                Vedam School of Technology, exploring web development,
-                artificial intelligence and innovative technologies.
-                I love learning, building projects and turning ideas
-                into reality.
-            </p>
+        <h1>
+          Arpita
+          <span class="gradient">Vashisht</span>
+        </h1>
 
-            <div class="buttons">
-                <a href="#projects" class="btn">Explore My Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ABOUT ME -->
-
-    <section id="about">
-
-        <h2 class="section-title">About <span>Me</span></h2>
-
-        <p class="section-subtitle">
-            A little introduction about who I am.
-        </p>
-
-        <div class="about-content">
-
-            <p>
-                Hey! I'm <span class="highlight">Arpita Vashisht</span>,
-                a first-year B.Tech student pursuing Computer Science
-                and Artificial Intelligence at
-                <span class="highlight">Vedam School of Technology</span>.
-            </p>
-
-            <p>
-                I'm interested in software development, web technologies
-                and artificial intelligence. I enjoy experimenting
-                with new ideas and developing practical projects.
-            </p>
-
-            <p>
-                My goal is to continuously improve my technical skills,
-                gain real-world experience and grow into a skilled
-                software engineer and innovator.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- TECHNICAL SKILLS -->
-
-    <section id="skills">
-
-        <h2 class="section-title">Technical <span>Skills</span></h2>
-
-        <p class="section-subtitle">
-            Technologies and concepts I'm learning and exploring.
-        </p>
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-                <h3>HTML</h3>
-            </div>
-
-            <div class="skill-card">
-                <h3>CSS</h3>
-            </div>
-
-            <div class="skill-card">
-                <h3>Java</h3>
-            </div>
-
-            <div class="skill-card">
-                <h3>Prompt Engineering</h3>
-            </div>
-
-            <div class="skill-card">
-                <h3>Git & GitHub</h3>
-            </div>
-
-            <div class="skill-card">
-                <h3>AI Tools</h3>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- MY PROJECTS -->
-
-    <section id="projects">
-
-        <h2 class="section-title">My <span>Projects</span></h2>
-
-        <p class="section-subtitle">
-            Some of the projects I've worked on.
-        </p>
-
-        <div class="projects-grid">
-
-            <!-- WHATSAPP CLONE -->
-
-            <div class="project-card">
-
-                <img
-                    src="images/whatsapp-clone.png"
-                    alt="WhatsApp Clone Project"
-                    class="project-image"
-                    loading="lazy"
-                >
-
-                <div class="project-info">
-
-                    <h3>WhatsApp Clone</h3>
-
-                    <p>
-                        A bootcamp project focused on building a
-                        WhatsApp-inspired messaging application
-                        with a chat interface and real-time messaging.
-                    </p>
-
-                    <div class="tags">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>Express</span>
-                        <span>Socket.io</span>
-                        <span>MongoDB</span>
-                        <span>Firebase</span>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://github.com/arpitavasisht0210-bit/whatsappclone"
-                           target="_blank" rel="noopener noreferrer">
-                            View on GitHub
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- BREW AND BLOOM CAFE -->
-
-            <div class="project-card">
-
-                <img
-                    src="images/brew-and-bloom.png"
-                    alt="Brew and Bloom Cafe Website"
-                    class="project-image"
-                    loading="lazy"
-                >
-
-                <div class="project-info">
-
-                    <h3>Brew & Bloom Cafe</h3>
-
-                    <p>
-                        A visually appealing cafe website designed
-                        to showcase a coffee shop experience through
-                        an attractive and user-friendly interface.
-                    </p>
-
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Web Design</span>
-                        <span>Responsive Design</span>
-                    </div>
-
-                    <div class="project-links">
-
-                        <a href="https://arpitavasisht0210-bit.github.io/Brew-and-Bloom-Cafe/"
-                           target="_blank" rel="noopener noreferrer">
-                            View Live Website
-                        </a>
-
-                        <a href="https://github.com/arpitavasisht0210-bit/Brew-and-Bloom-Cafe"
-                           target="_blank" rel="noopener noreferrer">
-                            View on GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CERTIFICATIONS AND ACHIEVEMENTS -->
-
-    <section id="certifications" class="certifications">
-
-        <h2 class="section-title">
-            Certifications & <span>Achievements</span>
+        <h2>
+          Computer Science & AI Student
+          <br>
+          Aspiring Software Developer
         </h2>
 
-        <p class="section-subtitle">
-            Learning, building and growing through hands-on experiences.
+        <p>
+          I'm passionate about web development,
+          artificial intelligence, and creating
+          meaningful digital experiences.
+
+          I enjoy building projects, learning new
+          technologies, and turning ideas into
+          practical applications.
         </p>
 
-        <div class="certificate-card">
+        <div class="actions">
 
-            <a href="images/certificates/whatsapp-clone-certificate.jpeg"
-               target="_blank" rel="noopener noreferrer">
+          <a href="#projects" class="btn primary">
+            View My Projects ↗
+          </a>
 
-                <img
-                    src="images/certificates/whatsapp-clone-certificate.jpeg"
-                    alt="Arpita Vashisht's Vedam School of Technology Certificate of Participation"
-                    class="certificate-image"
-                    loading="lazy"
-                >
-
-            </a>
-
-            <div class="certificate-info">
-
-                <h3>Build Your Own WhatsApp Clone with AI</h3>
-
-                <p>Vedam School of Technology</p>
-
-                <span class="certificate-type">
-                    Certificate of Participation
-                </span>
-
-                <p style="margin-top: 12px;">
-                    Issued: 2 August 2026
-                </p>
-
-            </div>
+          <a href="#github-resume" class="btn outline">
+            GitHub & Resume ↗
+          </a>
 
         </div>
 
+        <div class="social-links">
+
+          <a
+            href="https://github.com/arpitavasisht0210-bit"
+            target="_blank"
+            rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/arpitavashisht/"
+            target="_blank"
+            rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE PHOTO -->
+      <div class="portrait-wrap">
+
+        <img
+          src="assets/profile.jpg"
+          alt="Arpita Vashisht Professional Portrait">
+
+      </div>
+
     </section>
+
+
+
+    <!-- ABOUT SECTION -->
+    <section class="section container" id="about">
+
+      <div class="section-heading">
+        <h2>About <span>Me</span></h2>
+      </div>
+
+      <div class="about-panel">
+
+        <p>
+          I'm a B.Tech Computer Science & Artificial
+          Intelligence student at Vedam School of
+          Technology, Sushant University.
+
+          I am developing my programming and
+          problem-solving skills through practical
+          projects, coursework, and collaborative learning.
+        </p>
+
+        <p>
+          I'm interested in software development,
+          web design, and artificial intelligence.
+
+          I am looking for opportunities to gain
+          real-world experience and grow as a developer.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SKILLS SECTION -->
+    <section class="section container" id="skills">
+
+      <div class="section-heading">
+
+        <h2>
+          Technical <span>Skills</span>
+        </h2>
+
+        <p>
+          Tools and technologies I'm learning and using
+        </p>
+
+      </div>
+
+
+      <div class="skills-grid">
+
+        <div class="mini-card">
+
+          <h3>Web Development</h3>
+
+          <p>
+            HTML5 · CSS3 · Responsive Design
+          </p>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <h3>Programming</h3>
+
+          <p>
+            Java · JavaScript Fundamentals
+          </p>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <h3>Tools & Platforms</h3>
+
+          <p>
+            Git · GitHub · VS Code
+          </p>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <h3>Other Skills</h3>
+
+          <p>
+            Prompt Engineering · Team Collaboration
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section container" id="projects">
+
+      <div class="section-heading">
+
+        <h2>
+          Featured <span>Projects</span>
+        </h2>
+
+        <p>
+          A selection of projects I've created
+        </p>
+
+      </div>
+
+
+      <div class="project-grid">
+
+
+        <!-- PROJECT 01 -->
+        <article class="project-card">
+
+          <img
+            class="project-image"
+            src="assets/brew-bloom.png"
+            alt="Brew and Bloom Cafe Website Screenshot"
+            loading="lazy">
+
+          <div class="project-content">
+
+            <p class="project-label">
+              PROJECT 01 / WEBSITE
+            </p>
+
+            <h3>Brew & Bloom Cafe</h3>
+
+            <p>
+              A responsive café website featuring
+              an inviting homepage, coffee menu,
+              About and Contact sections.
+            </p>
+
+            <div class="tags">
+
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Responsive</span>
+
+            </div>
+
+
+            <div class="actions project-actions">
+
+              <a
+                class="btn primary"
+                href="https://arpitavasisht0210-bit.github.io/Brew-and-Bloom-Cafe/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Live Demo ↗
+
+              </a>
+
+
+              <a
+                class="btn outline"
+                href="https://github.com/arpitavasisht0210-bit/Brew-and-Bloom-Cafe"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GitHub ↗
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 02 -->
+        <article class="project-card">
+
+          <img
+            class="project-image"
+            src="assets/whatsapp-clone.png"
+            alt="WhatsApp Clone Project Screenshot"
+            loading="lazy">
+
+          <div class="project-content">
+
+            <p class="project-label">
+              PROJECT 02 / WEB APPLICATION
+            </p>
+
+            <h3>WhatsApp Clone</h3>
+
+            <p>
+              A messaging prototype featuring an
+              interactive chat interface and
+              sample conversations.
+            </p>
+
+            <div class="tags">
+
+              <span>Web App</span>
+              <span>Messaging UI</span>
+              <span>Project</span>
+
+            </div>
+
+
+            <div class="actions project-actions">
+
+              <a
+                class="btn primary"
+                href="https://github.com/arpitavasisht0210-bit/whatsappclone"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                View GitHub ↗
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 03 - FIXED SCREENSHOT -->
+        <article class="project-card">
+
+          <!-- Correct local screenshot path -->
+
+          <img
+            class="project-image"
+            src="assets/portfolio-screenshot.png"
+            alt="Screenshot of Arpita Vashisht Personal Portfolio"
+            loading="lazy">
+
+          <div class="project-content">
+
+            <p class="project-label">
+              PROJECT 03 / PORTFOLIO WEBSITE
+            </p>
+
+            <h3>Personal Portfolio</h3>
+
+            <p>
+              A modern portfolio showcasing projects,
+              skills, education, resume and contact
+              links in a premium dark theme.
+            </p>
+
+            <div class="tags">
+
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Flexbox</span>
+              <span>CSS Grid</span>
+
+            </div>
+
+
+            <div class="actions project-actions">
+
+              <a
+                class="btn primary"
+                href="#home">
+
+                View Portfolio ↗
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- EDUCATION -->
+    <section class="section container" id="education">
+
+      <div class="section-heading">
+
+        <h2>
+          Education & <span>Learning</span>
+        </h2>
+
+      </div>
+
+
+      <div class="skills-grid two-col">
+
+        <div class="mini-card">
+
+          <p class="project-label">
+            2026 – 2030
+          </p>
+
+          <h3>
+            B.Tech in Computer Science & AI
+          </h3>
+
+          <p>
+            Vedam School of Technology
+            <br>
+            Sushant University
+          </p>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <p class="project-label">
+            CONTINUOUS LEARNING
+          </p>
+
+          <h3>
+            Web Development & Programming
+          </h3>
+
+          <p>
+            Hands-on coding, web development
+            projects, and Google Cloud learning labs.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- GITHUB & RESUME -->
+    <section
+      class="section container"
+      id="github-resume">
+
+      <div class="section-heading">
+
+        <h2>
+          GitHub & <span>Resume</span>
+        </h2>
+
+        <p>
+          Explore my work and professional profile
+        </p>
+
+      </div>
+
+
+      <div class="skills-grid two-col">
+
+
+        <!-- GITHUB -->
+        <div class="mini-card">
+
+          <h3>GitHub</h3>
+
+          <p>
+            Browse my repositories and current projects.
+          </p>
+
+          <a
+            class="btn primary"
+            href="https://github.com/arpitavasisht0210-bit"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Visit GitHub ↗
+
+          </a>
+
+        </div>
+
+
+
+        <!-- RESUME -->
+        <div class="mini-card">
+
+          <h3>Resume</h3>
+
+          <p>
+            Explore my professional background,
+            technical skills and learning experience.
+          </p>
+
+          <!-- Add resume.pdf to your folder -->
+          <a
+            class="btn outline"
+            href="resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            View Resume ↗
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
 
 
     <!-- CONTACT -->
+    <section class="section container" id="contact">
 
-    <section id="contact">
+      <div class="section-heading">
 
-        <h2 class="section-title">
-            Get In <span>Touch</span>
+        <h2>
+          Let's <span>Connect</span>
         </h2>
 
-        <p class="section-subtitle">
-            Let's connect, collaborate and build something amazing!
+        <p>
+          Open to internships, learning opportunities
+          and collaborations
         </p>
 
-        <div class="contact-box">
+      </div>
 
-            <p>
-                Have an opportunity, project idea or just want to connect?
-                Feel free to reach out.
-            </p>
 
-            <div class="buttons" style="margin-bottom: 25px;">
-                <a href="mailto:arpitavasisht0210@gmail.com" class="btn">
-                    Email Me
-                </a>
-            </div>
+      <div class="contact-panel">
 
-            <div class="social-links">
+        <p>
+          Feel free to reach out to me on LinkedIn
+          or explore my projects on GitHub.
+        </p>
 
-                <a href="https://github.com/arpitavasisht0210-bit"
-                   target="_blank" rel="noopener noreferrer">
-                    GitHub
-                </a>
 
-                <a href="https://www.linkedin.com/in/arpitavashisht/"
-                   target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                </a>
+        <div class="actions">
 
-            </div>
+          <a
+            class="btn primary"
+            href="https://www.linkedin.com/in/arpitavashisht/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Connect on LinkedIn ↗
+
+          </a>
+
+
+          <a
+            class="btn outline"
+            href="https://github.com/arpitavasisht0210-bit"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            My GitHub ↗
+
+          </a>
 
         </div>
 
+      </div>
+
     </section>
 
-
-    <!-- FOOTER -->
-
-    <footer>
-        <p>
-            © <span id="year"></span> Arpita Vashisht.
-            Designed with passion and creativity.
-        </p>
-    </footer>
+  </main>
 
 
-    <!-- JAVASCRIPT -->
 
-    <script>
+  <!-- FOOTER -->
+  <footer>
 
-        const menuBtn = document.getElementById("menuBtn");
-        const navLinks = document.getElementById("navLinks");
+    © 2026 Arpita Vashisht.
+    Built with HTML & CSS.
 
-        menuBtn.addEventListener("click", function () {
-            const isOpen = navLinks.classList.toggle("active");
-            menuBtn.setAttribute("aria-expanded", isOpen);
-            menuBtn.textContent = isOpen ? "✕" : "☰";
-        });
-
-        document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", function () {
-                navLinks.classList.remove("active");
-                menuBtn.setAttribute("aria-expanded", "false");
-                menuBtn.textContent = "☰";
-            });
-        });
-
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
-
-    </script>
+  </footer>
 
 </body>
 </html>
