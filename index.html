@@ -1,315 +1,821 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arpita Vashisht | Software Engineering & AI Intern Candidate</title>
-<meta name="description" content="Portfolio of Arpita Vashisht, B.Tech CS & AI student at Vedam School of Technology, building web and AI projects.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arpita Vashisht | Portfolio</title>
+
+    <meta name="description" content="Arpita Vashisht - B.Tech Computer Science and AI student at Vedam School of Technology. Explore my projects, skills and achievements.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #080812;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        :root {
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --light: #d8b4fe;
+            --card: #151525;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 18, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #ddd;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* COMMON SECTION */
+
+        section {
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: var(--purple);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 45px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(168,85,247,0.15), transparent 35%),
+                radial-gradient(circle at 80% 70%, rgba(236,72,153,0.12), transparent 35%),
+                #080812;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 65px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            color: #d8b4fe;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #bbb;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #9333ea, #db2777);
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(168,85,247,0.35);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--purple);
+            background: transparent;
+        }
+
+        /* ABOUT */
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid rgba(168,85,247,0.2);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #bbb;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .skill-card {
+            padding: 25px;
+            text-align: center;
+            background: var(--card);
+            border-radius: 15px;
+            border: 1px solid rgba(168,85,247,0.2);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--purple);
+        }
+
+        .skill-card h3 {
+            color: var(--light);
+            font-size: 18px;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(168,85,247,0.2);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--purple);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #202035;
+        }
+
+        .project-info {
+            padding: 22px;
+        }
+
+        .project-info h3 {
+            font-size: 21px;
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .tags span {
+            font-size: 12px;
+            padding: 5px 10px;
+            background: rgba(168,85,247,0.15);
+            color: #d8b4fe;
+            border-radius: 20px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            font-size: 13px;
+            padding: 9px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--purple);
+            transition: 0.3s;
+        }
+
+        .project-links a:hover {
+            background: var(--purple);
+        }
+
+        /* CERTIFICATIONS */
+
+        .certifications {
+            text-align: center;
+        }
+
+        .certificate-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 22px;
+            background: var(--card);
+            border: 1px solid rgba(168,85,247,0.3);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--purple);
+            box-shadow: 0 10px 35px rgba(168,85,247,0.12);
+        }
+
+        .certificate-image {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            cursor: zoom-in;
+        }
+
+        .certificate-info {
+            padding: 22px 10px 8px;
+        }
+
+        .certificate-info h3 {
+            font-size: 23px;
+            color: var(--light);
+            margin-bottom: 8px;
+        }
+
+        .certificate-info p {
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .certificate-type {
+            display: inline-block;
+            color: #d8b4fe;
+            background: rgba(168,85,247,0.15);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            padding: 35px;
+            text-align: center;
+            background: var(--card);
+            border-radius: 20px;
+            border: 1px solid rgba(168,85,247,0.2);
+        }
+
+        .contact-box p {
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            border: 1px solid var(--purple);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--purple);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid rgba(168,85,247,0.2);
+            font-size: 14px;
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: #101020;
+                padding: 25px;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .about-content,
+            .contact-box {
+                padding: 25px 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header class="nav">
-  <nav class="wrap" aria-label="Main">
-    <a href="#home" class="logo">Arpita<span>.dev</span></a>
-    <input type="checkbox" id="menu" aria-label="Toggle menu">
-    <label for="menu" class="burger" aria-hidden="true">&#9776;</label>
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header>
+    <!-- NAVIGATION -->
 
-<main>
+    <header>
+        <nav>
+            <a href="#home" class="logo">Arpita.</a>
 
-<!-- HOME -->
-<section class="hero" id="home">
-  <div class="wrap">
-    <div>
-      <h1>Hi, I'm Arpita Vashisht.</h1>
-      <p class="role">B.Tech CS &amp; AI student · Aspiring Software Engineering </p>
-      <p class="lead">I'm a first-year engineering student who learns by building. I enjoy web development, problem-solving, and AI, and I'm looking for internships where I can contribute and grow.</p>
-      <div class="btns">
-        <a class="btn primary" href="#projects">View projects</a>
-        <a class="btn ghost" href="#contact">Get in touch</a>
-      </div>
-    </div>
-    <div class="photo">
-  <img src="Arpita.jpg" alt="Portrait of Arpita Vashisht">
-</div>
-  </div>
-</section>
+            <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation" aria-expanded="false">
+                ☰
+            </button>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <h2>About me</h2>
-    <p class="lead">A curious beginner with hands-on projects and a habit of finishing what I start.</p>
-    <div class="about">
-      <div>
-        <p>I'm pursuing a B.Tech in Computer Science &amp; Artificial Intelligence at Vedam School of Technology, Sushant University. Since starting my first year, I've built a responsive café website and a real-time chat app, and I've led a team in a hackathon.</p>
-        <p>I'm drawn to frontend development because it combines logic with design. I'm also building a foundation in AI and machine learning, and I want to turn that curiosity into practical, useful projects.</p>
-        <p>I'm open to Software Engineering, Frontend Developer, and AI &amp; ML internships.</p>
-      </div>
-      <ul class="facts card">
-        <li><span>Studying</span><span>B.Tech CS &amp; AI</span></li>
-        <li><span>University</span><span>Vedam School of Technology</span></li>
-        <li><span>Batch</span><span>2026–2030</span></li>
-        <li><span>Location</span><span>Gurugram, Haryana</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="wrap">
-    <h2>Skills</h2>
-    <p class="lead">Tools and technologies I've used in my projects so far.</p>
-    <div class="grid g3">
-      <div class="card"><h3>Languages</h3><div class="tags"><span class="tag">Java</span><span class="tag">JavaScript</span></div></div>
-      <div class="card"><h3>Frontend</h3><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive design</span><span class="tag">React</span></div></div>
-      <div class="card"><h3>Backend &amp; data</h3><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Socket.io</span><span class="tag">MongoDB</span><span class="tag">Firebase</span></div></div>
-      <div class="card"><h3>Tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitHub Pages</span><span class="tag">VS Code</span></div></div>
-      <div class="card"><h3>Learning</h3><div class="tags"><span class="tag">Artificial Intelligence</span><span class="tag">Machine Learning</span></div></div>
-      <div class="card"><h3>Teamwork</h3><div class="tags"><span class="tag">Team leadership</span><span class="tag">Collaboration</span><span class="tag">Problem-solving</span><span class="tag">Research</span></div></div>
-    </div>
-  </div>
-</section>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certificates</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
+    <!-- HOME -->
 
-    <h2>Projects</h2>
-    <p class="lead">
-      Things I've built while learning. Each one taught me something new.
-    </p>
+    <section class="hero" id="home">
+        <div class="hero-content">
 
-    <div class="grid g2">
+            <h1>Hello, I'm <span>Arpita Vashisht</span></h1>
 
-      <!-- PROJECT 1: BREW & BLOOM CAFE -->
-      <article class="card">
-        <h3>Brew &amp; Bloom Café</h3>
+            <h2>B.Tech CS & AI Student | Aspiring Software Engineer</h2>
 
-        <p>
-          A responsive café website with a clean layout
-          that adapts to phones, tablets, and laptops.
-          Deployed on GitHub Pages.
+            <p>
+                A passionate Computer Science and AI student at
+                Vedam School of Technology, exploring web development,
+                artificial intelligence and innovative technologies.
+                I love learning, building projects and turning ideas
+                into reality.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn">Explore My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT ME -->
+
+    <section id="about">
+
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <p class="section-subtitle">
+            A little introduction about who I am.
         </p>
 
-        <div class="tags">
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">GitHub Pages</span>
+        <div class="about-content">
+
+            <p>
+                Hey! I'm <span class="highlight">Arpita Vashisht</span>,
+                a first-year B.Tech student pursuing Computer Science
+                and Artificial Intelligence at
+                <span class="highlight">Vedam School of Technology</span>.
+            </p>
+
+            <p>
+                I'm interested in software development, web technologies
+                and artificial intelligence. I enjoy experimenting
+                with new ideas and developing practical projects.
+            </p>
+
+            <p>
+                My goal is to continuously improve my technical skills,
+                gain real-world experience and grow into a skilled
+                software engineer and innovator.
+            </p>
+
         </div>
 
-        <a class="more"
-           href="https://arpitavasisht0210-bit.github.io/Brew-and-Bloom-Cafe/"
-           target="_blank"
-           rel="noopener noreferrer">
-          View live site
-        </a>
-      </article>
+    </section>
 
-      <!-- PROJECT 2: WHATSAPP CLONE -->
-      <article class="card">
-        <h3>WhatsApp Clone</h3>
 
-        <p>
-          A real-time messaging app inspired by WhatsApp,
-          built to learn how frontend, server, and
-          database technologies work together.
+    <!-- TECHNICAL SKILLS -->
+
+    <section id="skills">
+
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+
+        <p class="section-subtitle">
+            Technologies and concepts I'm learning and exploring.
         </p>
 
-        <div class="tags">
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Express</span>
-          <span class="tag">Socket.io</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">Firebase</span>
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>CSS</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Java</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Prompt Engineering</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Git & GitHub</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>AI Tools</h3>
+            </div>
+
         </div>
 
-        <a class="more"
-           href="https://github.com/arpitavasisht0210-bit/whatsappclone"
-           target="_blank"
-           rel="noopener noreferrer">
-          View on GitHub
-        </a>
-      </article>
+    </section>
 
-      <!-- PROJECT 3: HACKATHON -->
-      <article class="card">
-        <h3>Smart India Hackathon 2026</h3>
 
-        <p>
-          Led Los Codigos, a team of six, for SIH 2026.
-          I coordinated the work, shared tasks,
-          and helped the team build and present together.
+    <!-- MY PROJECTS -->
+
+    <section id="projects">
+
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <p class="section-subtitle">
+            Some of the projects I've worked on.
         </p>
 
-        <div class="tags">
-          <span class="tag">Team leadership</span>
-          <span class="tag">Hackathon</span>
+        <div class="projects-grid">
+
+            <!-- WHATSAPP CLONE -->
+
+            <div class="project-card">
+
+                <img
+                    src="images/whatsapp-clone.png"
+                    alt="WhatsApp Clone Project"
+                    class="project-image"
+                    loading="lazy"
+                >
+
+                <div class="project-info">
+
+                    <h3>WhatsApp Clone</h3>
+
+                    <p>
+                        A bootcamp project focused on building a
+                        WhatsApp-inspired messaging application
+                        with a chat interface and real-time messaging.
+                    </p>
+
+                    <div class="tags">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>Socket.io</span>
+                        <span>MongoDB</span>
+                        <span>Firebase</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/arpitavasisht0210-bit/whatsappclone"
+                           target="_blank" rel="noopener noreferrer">
+                            View on GitHub
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BREW AND BLOOM CAFE -->
+
+            <div class="project-card">
+
+                <img
+                    src="images/brew-and-bloom.png"
+                    alt="Brew and Bloom Cafe Website"
+                    class="project-image"
+                    loading="lazy"
+                >
+
+                <div class="project-info">
+
+                    <h3>Brew & Bloom Cafe</h3>
+
+                    <p>
+                        A visually appealing cafe website designed
+                        to showcase a coffee shop experience through
+                        an attractive and user-friendly interface.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Web Design</span>
+                        <span>Responsive Design</span>
+                    </div>
+
+                    <div class="project-links">
+
+                        <a href="https://arpitavasisht0210-bit.github.io/Brew-and-Bloom-Cafe/"
+                           target="_blank" rel="noopener noreferrer">
+                            View Live Website
+                        </a>
+
+                        <a href="https://github.com/arpitavasisht0210-bit/Brew-and-Bloom-Cafe"
+                           target="_blank" rel="noopener noreferrer">
+                            View on GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-      </article>
 
-      <!-- PROJECT 4: PLANNED -->
-      <article class="card">
-        <span class="status">Planned</span>
+    </section>
 
-        <h3>AI Study Planner</h3>
 
-        <p>
-          A tool that helps students organise study time
-          using AI. This is my next project, and I'll
-          add it here once it's ready.
+    <!-- CERTIFICATIONS AND ACHIEVEMENTS -->
+
+    <section id="certifications" class="certifications">
+
+        <h2 class="section-title">
+            Certifications & <span>Achievements</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Learning, building and growing through hands-on experiences.
         </p>
 
-        <div class="tags">
-          <span class="tag">AI</span>
-          <span class="tag">Web app</span>
-        </div>
-      </article>
+        <div class="certificate-card">
 
-    </div>
-  </div>
-</section>
+            <a href="images/certificates/whatsapp-clone-certificate.jpeg"
+               target="_blank" rel="noopener noreferrer">
 
+                <img
+                    src="images/certificates/whatsapp-clone-certificate.jpeg"
+                    alt="Arpita Vashisht's Vedam School of Technology Certificate of Participation"
+                    class="certificate-image"
+                    loading="lazy"
+                >
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="wrap">
+            </a>
 
-    <h2>Certifications</h2>
+            <div class="certificate-info">
 
-    <p class="lead">
-      Certificates of completion from Vedam School of Technology.
-    </p>
+                <h3>Build Your Own WhatsApp Clone with AI</h3>
 
-    <div class="grid g3">
+                <p>Vedam School of Technology</p>
 
-      <!-- WEB DEVELOPMENT CERTIFICATE -->
-      <article class="card cert">
+                <span class="certificate-type">
+                    Certificate of Participation
+                </span>
 
-        <a class="thumb"
-           href="Certificate_Arpita_Vashisht_Web_Development.jpg"
-           target="_blank"
-           rel="noopener noreferrer">
+                <p style="margin-top: 12px;">
+                    Issued: 2 August 2026
+                </p>
 
-          <img
-            src="Certificate_Arpita_Vashisht_Web_Development.jpg"
-            alt="Web Development CodeSprint Certificate"
-            loading="lazy">
+            </div>
 
-        </a>
-
-        <div class="info">
-          <h3>Web Development CodeSprint</h3>
-          <p>Vedam School of Technology</p>
         </div>
 
-      </article>
+    </section>
 
-      <!-- PROMPT ENGINEERING CERTIFICATE -->
-      <article class="card cert">
 
-        <a class="thumb"
-           href="Certificate_Arpita_Vashisht_Prompt_Engineering.jpg"
-           target="_blank"
-           rel="noopener noreferrer">
+    <!-- CONTACT -->
 
-          <img
-            src="Certificate_Arpita_Vashisht_Prompt_Engineering.jpg"
-            alt="Prompt Engineering CodeSprint Certificate"
-            loading="lazy">
+    <section id="contact">
 
-        </a>
+        <h2 class="section-title">
+            Get In <span>Touch</span>
+        </h2>
 
-        <div class="info">
-          <h3>Prompt Engineering CodeSprint</h3>
-          <p>Vedam School of Technology</p>
+        <p class="section-subtitle">
+            Let's connect, collaborate and build something amazing!
+        </p>
+
+        <div class="contact-box">
+
+            <p>
+                Have an opportunity, project idea or just want to connect?
+                Feel free to reach out.
+            </p>
+
+            <div class="buttons" style="margin-bottom: 25px;">
+                <a href="mailto:arpitavasisht0210@gmail.com" class="btn">
+                    Email Me
+                </a>
+            </div>
+
+            <div class="social-links">
+
+                <a href="https://github.com/arpitavasisht0210-bit"
+                   target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/arpitavashisht/"
+                   target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+
+            </div>
+
         </div>
 
-      </article>
+    </section>
 
-      <!-- AI STUDY PLANNER CERTIFICATE -->
-      <article class="card cert">
 
-        <a class="thumb"
-           href="Certificate_Arpita_Vashisht_Build_AI_Study_Planner.jpg"
-           target="_blank"
-           rel="noopener noreferrer">
+    <!-- FOOTER -->
 
-          <img
-            src="Certificate_Arpita_Vashisht_Build_AI_Study_Planner.jpg"
-            alt="Build AI Study Planner CodeSprint Certificate"
-            loading="lazy">
+    <footer>
+        <p>
+            © <span id="year"></span> Arpita Vashisht.
+            Designed with passion and creativity.
+        </p>
+    </footer>
 
-        </a>
 
-        <div class="info">
-          <h3>Build AI Study Planner CodeSprint</h3>
-          <p>Vedam School of Technology</p>
-        </div>
+    <!-- JAVASCRIPT -->
 
-      </article>
+    <script>
 
-    </div>
-  </div>
-</section>
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="wrap">
-    <h2>Education</h2>
-    <p class="lead">My academic path and the communities I'm part of.</p>
-    <div class="timeline">
-      <div class="card">
-        <div class="when">2026 – 2030</div>
-        <h3>B.Tech in Computer Science &amp; Artificial Intelligence</h3>
-        <p>Vedam School of Technology, Sushant University</p>
-        <div class="tags"><span class="tag">Entrepreneurship Club (member)</span><span class="tag">Tech Club (member)</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+        menuBtn.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+            menuBtn.setAttribute("aria-expanded", isOpen);
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+        });
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="card">
-      <h2>Let's talk</h2>
-      <p class="lead">I'm looking for a Software Engineering, Frontend, or AI &amp; ML internship. If you have an opening or want to chat, I'd love to hear from you.</p>
-      <div class="btns">
-        <!-- Replace with your real email and profile links -->
-        
-        
-        <a class="btn primary" href="mailto:arpitavasisht0210@gmail.com">Email me</a>
-        <a class="btn primary" href="https://github.com/arpitavasisht0210-bit" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn primary" href="https://www.linkedin.com/in/arpitavashisht/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</section>
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.textContent = "☰";
+            });
+        });
 
-</main>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-<footer>
-  <div class="wrap">&copy; 2026 Arpita Vashisht</div>
-</footer>
+    </script>
 
 </body>
 </html>
